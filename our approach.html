@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Approach | KodeKamp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e3a8a',
+            secondary: '#facc15',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-primary text-white px-6 py-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-2xl font-bold">KodeKamp</div>
+      <ul class="hidden md:flex space-x-6 font-semibold">
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="about.html" class="hover:underline">About</a></li>
+        <li><a href="team.html" class="hover:underline">Our Story</a></li>
+        <li><a href="programs.html" class="hover:underline">Programs</a></li>
+        <li><a href="contact.html" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl font-bold text-primary mb-4">Our Approach</h1>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        Empowering communities through inclusive, tech-enabled education tailored to their culture and environment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Approach Sections -->
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10 max-w-6xl">
+
+      <!-- Culturally Responsive Education -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex items-center space-x-4 mb-4">
+          <span class="text-yellow-400 text-4xl">🌍</span>
+          <h2 class="text-xl font-semibold text-gray-800">Culturally Responsive Education</h2>
+        </div>
+        <p class="text-gray-700">
+          Every curriculum is developed in partnership with community elders, incorporating Hausa language, traditional stories, and local knowledge systems.
+        </p>
+      </div>
+
+      <!-- Technology-Enhanced Learning -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex items-center space-x-4 mb-4">
+          <span class="text-blue-400 text-4xl">📱</span>
+          <h2 class="text-xl font-semibold text-gray-800">Technology-Enhanced Learning</h2>
+        </div>
+        <p class="text-gray-700">
+          Our mobile app and offline-capable platform ensure learning continues even in areas with limited internet connectivity.
+        </p>
+      </div>
+
+      <!-- Community Ownership -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex items-center space-x-4 mb-4">
+          <span class="text-green-500 text-4xl">🤝</span>
+          <h2 class="text-xl font-semibold text-gray-800">Community Ownership</h2>
+        </div>
+        <p class="text-gray-700">
+          We train local leaders to run programs, ensuring sustainability and community buy-in from day one.
+        </p>
+      </div>
+
+      <!-- Evidence-Based Impact -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex items-center space-x-4 mb-4">
+          <span class="text-purple-500 text-4xl">📊</span>
+          <h2 class="text-xl font-semibold text-gray-800">Evidence-Based Impact</h2>
+        </div>
+        <p class="text-gray-700">
+          Regular assessment and evaluation guide program improvements and demonstrate measurable outcomes to partners and funders.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

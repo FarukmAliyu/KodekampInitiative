@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KodeKamp Technology Initiative empowers communities through culturally responsive and tech-enhanced learning.">
+<meta name="keywords" content="Education, Technology, Community, Hausa, Offline Learning">
+<meta name="author" content="KodeKamp Initiative">
+    <title>KodeKamp Technology Initiative - Empowering Communities Through Education</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2c5aa0;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2c5aa0;
+            transition: width 0.3s;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav li {
+            padding: 0.8rem 2rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mobile-nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .mobile-nav a:hover {
+            color: #2c5aa0;
+        }
+
+        /* Dropdown Navigation */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            border-radius: 5px;
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.8rem 1.2rem;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background: #f8f9fa;
+            color: #2c5aa0;
+        }
+
+        .dropdown-content a::after {
+            display: none;
+        }
+
+        .cta-button {
+            background: #e74c3c;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #c0392b;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a8a 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2c5aa0;
+        }
+
+        /* Problem Solution Section */
+        .problem-solution {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5aa0;
+        }
+
+        .problem-solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .problem-content, .solution-content {
+            padding: 2rem;
+        }
+
+        .problem-content {
+            background: #fff;
+            border-left: 5px solid #e74c3c;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .solution-content {
+            background: #fff;
+            border-left: 5px solid #27ae60;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .problem-content h3, .solution-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .program-icon {
+            width: 60px;
+            height: 60px;
+            background: #2c5aa0;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c5aa0;
+        }
+
+        .age-range {
+            background: #e74c3c;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Partnership Section */
+        .partnership {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a8a 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .partnership h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .partnership p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #2c5aa0;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #555;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .cta-button {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .problem-solution-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: block;
+                box-shadow: none;
+                background: transparent;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            mobileNav.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!toggle.contains(event.target) && !mobileNav.contains(event.target)) {
+                mobileNav.classList.remove('active');
+                toggle.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when window is resized to desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('mobileNav').classList.remove('active');
+                document.querySelector('.mobile-menu-toggle').classList.remove('active');
+            }
+        });
+    </script>
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <img src="src/cropped-D-4uKvnXoAAQzzz.png" alt="KodeKamp Logo" class="h-10 w-auto">
+            <div class="mobile-nav"></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#about">About</a>
+                    <div class="dropdown-content">
+                        <a href="our story.html">Our Story</a>
+                        <a href="team.html">Team</a>
+                        <a href="our approach.html">Our Approach</a>
+                        <a href="impact-framework.html">Impact Framework</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs">Programs</a>
+                    <div class="dropdown-content">
+                        <a href="early-foundations.html">Early Foundations (3-6)</a>
+                        <a href="growing-minds.html">Growing Minds (7-12)</a>
+                        <a href="future-leaders.html">Future Leaders (13-18)</a>
+                        <a href="community-training.html">Community Training</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#impact">Community Impact</a>
+                    <div class="dropdown-content">
+                        <a href="success-stories.html">Success Stories</a>
+                        <a href="data-outcomes.html">Data & Outcomes</a>
+                        <a href="research.html">Research & Evidence</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#partnerships">Partnerships</a>
+                    <div class="dropdown-content">
+                        <a href="funders.html">For Funders</a>
+                        <a href="communities.html">For Communities</a>
+                        <a href="organizations.html">For Organizations</a>
+                        <a href="government.html">For Government</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#resources">Resources</a>
+                    <div class="dropdown-content">
+                        <a href="blog.html">Blog</a>
+                        <a href="reports.html">Reports</a>
+                        <a href="media-kit.html">Media Kit</a>
+                        <a href="geographic-focus.html">Geographic Focus</a>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <a href="#get-involved" class="cta-button">Get Involved</a>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobileNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#our-story">→ Our Story</a></li>
+                    <li><a href="#team">→ Team</a></li>
+                    <li><a href="#approach">→ Our Approach</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#early-foundations">→ Early Foundations (3-6)</a></li>
+                    <li><a href="#growing-minds">→ Growing Minds (7-12)</a></li>
+                    <li><a href="#future-leaders">→ Future Leaders (13-18)</a></li>
+                    <li><a href="#community-training">→ Community Training</a></li>
+                    <li><a href="#impact">Community Impact</a></li>
+                    <li><a href="#success-stories">→ Success Stories</a></li>
+                    <li><a href="#data-outcomes">→ Data & Outcomes</a></li>
+                    <li><a href="#partnerships">Partnerships</a></li>
+                    <li><a href="#funders">→ For Funders</a></li>
+                    <li><a href="#communities">→ For Communities</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#get-involved" class="cta-button" style="margin: 1rem 0; display: inline-block;">Get Involved</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Empowering Communities Through Education</h1>
+            <p class="subtitle">Building brighter futures for children and families in Northern Nigeria through innovative, culturally-grounded learning experiences</p>
+            <p>At KodeKamp, we believe every child deserves access to quality education that honors their heritage while preparing them for tomorrow's opportunities. Our community learning centers blend traditional values with modern skills, creating pathways to prosperity in rural Northern Nigeria.</p>
+            <div class="hero-buttons">
+                <a href="#impact" class="btn-primary">Explore Our Impact</a>
+                <a href="#partnerships" class="btn-secondary">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section class="problem-solution">
+        <div class="container">
+            <h2 class="section-title">Bridging the Education Gap</h2>
+            <div class="problem-solution-grid">
+                <div class="problem-content">
+                    <h3>The Challenge</h3>
+                    <p>In rural Northern Nigeria, millions of children lack access to quality education that connects their cultural identity with modern opportunities. This educational divide perpetuates cycles of poverty and limits community development.</p>
+                </div>
+                <div class="solution-content">
+                    <h3>Our Solution</h3>
+                    <p>KodeKamp establishes community learning centers that provide comprehensive education for ages 3-18, combining traditional Hausa values with innovative teaching methods, technology integration, and life skills development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Highlights -->
+    <section class="impact">
+        <div class="container">
+            <h2 class="section-title">Our Growing Impact</h2>
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Children Educated</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Communities Transformed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Learning Improvement</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Local Leaders Trained</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon">🌱</div>
+                    <h3>Early Foundations</h3>
+                    <div class="age-range">Ages 3-6</div>
+                    <p>Building strong roots through story, play, and discovery in native language and culture. Nurturing curiosity and confidence through culturally-grounded early learning.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🚀</div>
+                    <h3>Growing Minds</h3>
+                    <div class="age-range">Ages 7-12</div>
+                    <p>Expanding horizons with technology, literacy, numeracy, and creative problem-solving. Strengthening heritage while building modern skills.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">👑</div>
+                    <h3>Future Leaders</h3>
+                    <div class="age-range">Ages 13-18</div>
+                    <p>Developing skills for life, work, and community leadership in a modern world. Preparing confident, capable community leaders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership">
+        <div class="container">
+            <h2>Working Together for Lasting Change</h2>
+            <p>Sustainable transformation requires collaborative effort. We partner with communities, government institutions, NGOs, and funders to create lasting educational impact across Northern Nigeria.</p>
+            <div class="hero-buttons">
+                <a href="#partnerships" class="btn-primary">Explore Partnerships</a>
+                <a href="#get-involved" class="btn-secondary">Join Our Mission</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Programs</h3>
+                    <a href="#">Early Foundations (3-6)</a>
+                    <a href="#">Growing Minds (7-12)</a>
+                    <a href="#">Future Leaders (13-18)</a>
+                    <a href="#">Community Training</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <a href="#">Fund Our Mission</a>
+                    <a href="#">Volunteer Skills</a>
+                    <a href="#">Host a Program</a>
+                    <a href="#">Partner With Us</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Focus Areas</h3>
+                    <a href="#">Kaduna State</a>
+                    <a href="#">FCT Initiative</a>
+                    <a href="#">Cultural Integration</a>
+                    <a href="#">Technology Platform</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <a href="mailto:amaliyu@hotmail.com">amaliyu@hotmail.com</a>
+                    <a href="tel:08091133977">08091133977</a>
+                    <a href="#">Download Media Kit</a>
+                    <a href="#">Impact Reports</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KodeKamp Technology Initiative Limited. Empowering communities through education.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
