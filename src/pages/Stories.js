@@ -37,7 +37,7 @@ export default function Stories() {
           />
         </div>
         <div className="col-md-7">
-          <h3 className="text-danger">Garba – From Herding to Coding</h3>
+          <h3 className="text-danger">Kobe – From Herding to Coding</h3>
           <p>
             Garba, 16, used to spend most of his days herding goats in Bauchi. Through our weekend coding club, he learned HTML and CSS. Today, he teaches basic tech skills to other children in his community while dreaming of building apps for farmers.
           </p>
