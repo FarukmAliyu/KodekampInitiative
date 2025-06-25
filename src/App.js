@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -18,20 +19,26 @@ import Volunteering from './pages/Volunteering';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/ourstory" element={<OurStory />} />
-        <Route path="/our-approach" element={<OurApproach />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/impact-framework" element={<ImpactFramework />} />
-        <Route path="/early-childhood" element={<EarlyChildhood />} /> {/* ✅ FIXED */}
-        <Route path="/stories" element={<Stories />} />
-        <Route path="/opportunities" element={<Opportunities />} />
-        <Route path="/funding" element={<Funding />} />
-        <Route path="/volunteering" element={<Volunteering />} />
-      </Routes>
-      <Footer />
+      <div className="app-wrapper">
+        <Navbar />
+
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/ourstory" element={<OurStory />} />
+            <Route path="/our-approach" element={<OurApproach />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/impact-framework" element={<ImpactFramework />} />
+            <Route path="/early-childhood" element={<EarlyChildhood />} />
+            <Route path="/stories" element={<Stories />} />
+            <Route path="/opportunities" element={<Opportunities />} />
+            <Route path="/funding" element={<Funding />} />
+            <Route path="/volunteering" element={<Volunteering />} />
+          </Routes>
+        </div>
+
+        <Footer />
+      </div>
     </Router>
   );
 }
