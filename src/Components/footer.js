@@ -56,7 +56,7 @@ function Footer() {
         </div>
 
         <div className="text-center">
-          <small>&copy; 2023 KodeKamp Technology Initiative Limited. Empowering communities through education.</small>
+          <small>&copy; KodeKamp Technology Initiative Limited. Empowering communities through education.</small>
         </div>
 
       </div>
