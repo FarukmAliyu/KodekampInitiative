@@ -18,12 +18,12 @@ export default function Stories() {
           />
         </div>
         <div className="col-md-7">
-          <h3 className="text-success">Amina – The Young Inventor</h3>
+          <h3 className="text-success">Fatima – The Young Inventor</h3>
           <p>
             At just 10 years old, Amina from Katsina built a simple water filtration device using recycled bottles and charcoal after joining our STEM camp.
             With support from her mentor, she went on to present it to her local council and inspire dozens of other girls in her neighborhood.
           </p>
-          <p className="text-muted"><em>"Before this program, I didn’t know girls could build things. Now, I want to be an engineer!" – Amina</em></p>
+          <p className="text-muted"><em>"Before this program, I didn’t know girls could build things. Now, I want to be an engineer!" – Fatima</em></p>
         </div>
       </div>
 
@@ -37,11 +37,11 @@ export default function Stories() {
           />
         </div>
         <div className="col-md-7">
-          <h3 className="text-danger">Kobe – From Herding to Coding</h3>
+          <h3 className="text-danger">Dankande – From Herding to Coding</h3>
           <p>
-            Kobe, 16, used to spend most of his days herding goats in Bauchi. Through our weekend coding club, he learned HTML and CSS. Today, he teaches basic tech skills to other children in his community while dreaming of building apps for farmers.
+            Dankande, 16, used to spend most of his days herding goats in Bauchi. Through our weekend coding club, he learned HTML and CSS. Today, he teaches basic tech skills to other children in his community while dreaming of building apps for farmers.
           </p>
-          <p className="text-muted"><em>"KodeKamp made me believe that my background doesn’t define my future." – Kobe</em></p>
+          <p className="text-muted"><em>"KodeKamp made me believe that my background doesn’t define my future." – Dankande</em></p>
         </div>
       </div>
 
